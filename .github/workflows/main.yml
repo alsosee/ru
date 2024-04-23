@@ -13,8 +13,8 @@ jobs:
         uses: peter-evans/repository-dispatch@v3
         with:
           token: ${{ secrets.TOKEN }}
-          repository: alsosee/finder-ru
-          event-type: deploy
+          repository: alsosee/finder
+          event-type: deploy-ru
 
       # - name: Trigger index
       #   uses: peter-evans/repository-dispatch@v3
