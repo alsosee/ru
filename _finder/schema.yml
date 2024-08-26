@@ -1,0 +1,517 @@
+root_types:
+  - path: Люди
+    type: человек
+  - path: Организации
+    type: организация
+  - path: Подкасты
+    type: подкаст
+  - path: Фильмы
+    type: фильм
+  - path: Шоу
+    type: шоу
+  - path: Концерты
+    type: концерт
+content:
+  type: object
+  properties:
+    имя:
+      description: Имя человека или название организации, подкаста, фильма, и т.д.
+      type: string
+      meta: name
+    title:
+      description: Override for the name, used as page title, fallback to Name
+      type: string
+    ник:
+      type: string
+    image:
+      type: media
+      path: $ID
+    subtitle:
+      type: string
+    ранееИзвестенКак:
+      type: string
+    # year:
+    #   type: int
+    description:
+      type: string
+    cover_artist:
+      type: человек
+      label: Cover artist
+    designer:
+      type: человек
+    based_on:
+      type: array
+      items:
+        type: reference
+      label: Source
+    series:
+      type: string
+      meta: series
+    previous:
+      description: Peference to previous in the series
+      type: reference
+      meta: previous
+
+    # for people
+    dob:
+      title: Дата рождения
+      type: string
+      column: true
+    dod:
+      title: Дата смерти
+      type: string
+      column: true
+      column_always_show: true
+    contact:
+      type: string
+
+    # for companies
+    parent:
+      type: string
+    founded:
+      type: string
+    founders:
+      type: array
+      items:
+        type: человек
+      label: Founder
+
+    # general external links
+    website:
+      type: string
+    websites:
+      type: array
+      items:
+        type: string
+    rss:
+      type: string
+    patreon:
+      type: string
+    boosty:
+      type: string
+    donatty:
+      type: string
+    destream:
+      type: string
+    bluesky:
+      type: string
+    bento:
+      type: string
+    github:
+      type: string
+    wikipedia:
+      type: string
+    goodreads:
+      type: string
+    bookshop:
+      type: string
+    anime_news_network:
+      type: организация
+    twitch:
+      type: string
+    vk:
+      type: string
+    dtf:
+      type: string
+    mave:
+      type: string
+    yandex_music:
+      type: string
+    unsplash:
+      type: string
+    medium:
+      type: string
+    kinopoisk:
+      type: string
+    youtube:
+      type: string
+    vimeo:
+      type: string
+    imdb:
+      type: string
+    tmdb:
+      type: string
+    tpdb:
+      type: string
+    steam:
+      type: string
+    netflix:
+      type: string
+    spotify:
+      type: string
+    soundcloud:
+      type: string
+    hulu:
+      type: string
+    max:
+      type: string
+    adult_swim:
+      type: string
+      description: Adult Swim
+    app_store:
+      type: string
+    fandom:
+      type: string
+    rotten_tomatoes:
+      type: string
+    metacritic:
+      type: string
+    opencritic:
+      type: string
+    twitter:
+      type: string
+    mastodon:
+      type: string
+    reddit:
+      type: string
+    facebook:
+      type: string
+    instagram:
+      type: string
+    threads:
+      type: string
+    linkedin:
+      type: string
+    tiktok:
+      type: string
+    telegram_channel:
+      type: string
+    telegram_chat:
+      type: string
+    google_podcasts:
+      type: string
+    playstation:
+      type: string
+    xbox:
+      type: string
+    gog:
+      type: string
+    x:
+      type: string
+    discord:
+      type: string
+    epic:
+      type: string
+    ign:
+      type: string
+    amazon:
+      type: string
+    prime_video:
+      type: string
+    apple_tv:
+      type: string
+    apple_podcasts:
+      type: string
+    apple_books:
+      type: string
+    peacock:
+      type: string
+    google_play:
+      type: string
+    disney_plus:
+      type: string
+    microsoft_store:
+      type: string
+    nintendo:
+      type: string
+    humble_bundle:
+      type: string
+    row8:
+      type: string
+    redbox:
+      type: string
+    vudu:
+      type: string
+    darkhorse:
+      type: string
+
+    # for books
+    isbn:
+      type: string
+    isbn10:
+      type: string
+    isbn13:
+      type: string
+    oclc:
+      type: string
+    издатели:
+      type: array
+      items:
+        type: организация
+      column: true
+    publication:
+      description: Date or year of publication
+      type: string
+    от:
+      type: организация
+      label: Проект
+
+    # for comics
+    artists:
+      type: array
+      items:
+        type: человек
+      label: Artist
+    colorist:
+      type: человек
+    illustrators:
+      type: array
+      items:
+        type: человек
+      label: Illustrator
+    imprint:
+      type: string
+    upc:
+      type: string
+
+    # for movies, games, series, ...
+    genres:
+      type: array
+      items:
+        type: string
+    длина:
+      type: duration
+      column: true
+    режиссёры:
+      type: array
+      items:
+        type: человек
+      column: true
+      label: Режиссёр
+    писатели:
+      type: array
+      items:
+        type: человек
+      column: true
+      label: Writer
+    дистрибьюторы:
+      type: array
+      items:
+        type: организация
+      column: true
+      label: Distributor
+    рейтинг:
+      type: string
+      column: true
+    дата_выхода:
+      type: string
+      column: true
+      label: Дата выхода
+    сеть:
+      type: организация
+      column: true
+    engine:
+      type: string
+    создатели:
+      type: array
+      items:
+        type: человек
+      column: true
+      label: Creator
+    авторы:
+      type: array
+      items:
+        type: человек
+      column: true
+      label: Author
+    developers:
+      type: array
+      items:
+        type: человек
+      column: true
+      label: Developer
+    trailer:
+      type: string
+    editors:
+      type: array
+      items:
+        type: человек
+      label: Editor
+    cinematography:
+      type: array
+      items:
+        type: человек
+    producers:
+      type: array
+      items:
+        type: человек
+      label: Producer
+    сценаристы:
+      type: array
+      items:
+        type: человек
+      column: true
+    история:
+      type: array
+      items:
+        type: человек
+      column: true
+      label: История
+    диалоги:
+      type: array
+      items:
+        type: человек
+      column: true
+      label: Dialogues
+    music:
+      type: array
+      items:
+        type: человек
+    production:
+      type: array
+      items:
+        type: организация
+    composers:
+      type: array
+      items:
+        type: человек
+      label: Composer
+    programmers:
+      type: array
+      items:
+        type: человек
+      label: Programmer
+    designers:
+      type: array
+      items:
+        type: человек
+      label: Designer
+
+    # for podcasts
+    ведущие:
+      type: array
+      items:
+        type: человек
+      column: true
+      label: Ведущий подкаста
+    гости:
+      type: array
+      items:
+        type: человек
+      label: Гость подкаста
+
+    remake_of:
+      type: reference
+      label: Remake
+
+    characters:
+      type: array
+      items:
+        type: character
+
+    # for awards
+    categories:
+      type: array
+      items:
+        type: category
+    
+    references:
+      type: array
+      items:
+        type: reference
+      meta: none
+
+    episodes:
+      type: array
+      items:
+        type: episode
+
+    # fields populated by the generator
+    # Image                *Media  `yaml:"-" json:",omitempty"`
+    # Awards               []Award `yaml:"-" json:",omitempty"`
+    # EditorsAwards        []Award `yaml:"-" json:",omitempty"`
+    # WritersAwards        []Award `yaml:"-" json:",omitempty"`
+    # DirectorsAwards      []Award `yaml:"-" json:",omitempty"`
+    # CinematographyAwards []Award `yaml:"-" json:",omitempty"`
+    # MusicAwards          []Award `yaml:"-" json:",omitempty"`
+    # ScreenplayAwards     []Award `yaml:"-" json:",omitempty"`
+episode:
+  type: object
+  properties:
+    name:
+      type: string
+    description:
+      type: string
+    length:
+      type: duration
+    released:
+      type: string
+    directors:
+      type: array
+      items:
+        type: человек
+      label: Director
+      info: $name
+    writers:
+      type: array
+      items:
+        type: человек
+      label: Writer
+      info: $name
+    editors:
+      type: array
+      items:
+        type: человек
+      label: Editor
+      info: $name
+    cinematography:
+      type: array
+      items:
+        type: человек
+      label: Cinematography
+      info: $name
+    teleplay:
+      type: array
+      items:
+        type: человек
+      label: Teleplay
+      info: $name
+    story:
+      type: array
+      items:
+        type: человек
+      label: Story
+      info: $name
+    studio:
+      type: организация
+      info: $name
+    characters:
+      type: array
+      items:
+        type: character
+      info: $name
+    imdb:
+      type: string
+    tmdb:
+      type: string
+    netflix:
+      type: string
+    wikipedia:
+      type: string
+    fandom:
+      type: string
+character:
+  type: object
+  properties:
+    name:
+      type: string
+    actor:
+      type: человек
+      label: Actor
+      info: $name
+    voice:
+      type: человек
+      label: Voice
+      info: $name
+    image:
+      type: media
+      path: $ID/Characters/$name
+    actor_image:
+      type: media
+      path: People/$actor
+    awards:
+      type: array
+      items:
+        type: award
+# category:
+#   type: object

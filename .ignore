@@ -2,3 +2,6 @@
 .github
 .ignore
 .DS_Store
+/temp/**
+/_finder/**
+/finder

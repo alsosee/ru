@@ -4,21 +4,51 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - _finder/**
+      - .github/workflows/finder.yml
+  workflow_dispatch:
+  repository_dispatch:
+    types: [deploy]
 
 jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger deploy
-        uses: peter-evans/repository-dispatch@v3
+      - name: Clone info
+        uses: actions/checkout@v4
         with:
+          repository: alsosee/ru
+          path: info
           token: ${{ secrets.TOKEN }}
-          repository: alsosee/finder
-          event-type: deploy-ru
 
-      - name: Trigger index
-        uses: peter-evans/repository-dispatch@v3
+      - name: Clone media
+        uses: actions/checkout@v4
         with:
+          repository: alsosee/media-ru
+          path: media
           token: ${{ secrets.TOKEN }}
-          repository: alsosee/search
-          event-type: index-ru
+
+      - name: Run action
+        uses: ./info/_finder
+        with:
+          info: ./info
+          media: ./media
+          output: ./output
+          media_host: https://ru.media.alsosee.info
+          search_host: https://search.alsosee.info
+          search_api_key: ${{ secrets.MEILISEARCH_KEY }}
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3.5.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          command: pages deploy output --project-name=finder-ru-wip --branch=main --commit-dirty=true
+
+      # - name: Trigger index
+      #   uses: peter-evans/repository-dispatch@v3
+      #   with:
+      #     token: ${{ secrets.TOKEN }}
+      #     repository: alsosee/search
+      #     event-type: index-ru
