@@ -27,7 +27,7 @@ jobs:
       - name: Build and push to CR
         uses: chuhlomin/actions/docker-build-push@main
         env:
-          DOCKER_IMAGE: ghcr.io/alsosee/info
+          DOCKER_IMAGE: ghcr.io/alsosee/ru
         with:
           registry: ghcr.io
           username: alsosee-bot
@@ -43,5 +43,5 @@ jobs:
         uses: peter-evans/repository-dispatch@v3
         with:
           token: ${{ secrets.TOKEN }}
-          repository: alsosee/info
+          repository: alsosee/ru
           event-type: deploy
