@@ -1,6 +1,6 @@
-FROM --platform=${TARGETPLATFORM} ghcr.io/alsosee/codegen:latest as codegen
+FROM --platform=${TARGETPLATFORM} ghcr.io/alsosee/codegen:latest AS codegen
 
-FROM --platform=${TARGETPLATFORM} golang:1.21 as build-env
+FROM --platform=${TARGETPLATFORM} golang:1.21 AS build-env
 
 WORKDIR /src/
 
@@ -32,8 +32,8 @@ FROM --platform=${TARGETPLATFORM} gcr.io/distroless/static:966f4bd97f611354c4ad8
 ENV INPUT_TEMPLATES=/templates
 ENV INPUT_STATIC=/static
 
-COPY finder/templates /templates
-COPY finder/static /static
+COPY --from=build-env /src/finder/templates/ /templates
+COPY --from=build-env /src/finder/static /static
 COPY --from=build-env /go/bin/app /app
 
 CMD ["/app"]
