@@ -1,0 +1,10 @@
+title: См. ещё
+description: A collection of things, people and more.
+lang: ru
+url: https://ru.alsosee.info
+repo: https://github.com/alsosee/ru
+opengraph:
+  image: https://ru.media.alsosee.info/opengraph.png
+  width: 1920
+  height: 1080
+  twitter_image: https://ru.media.alsosee.info/twitter.png
