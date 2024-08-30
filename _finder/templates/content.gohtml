@@ -7,7 +7,7 @@ Inputs (same as for "index" template):
 - .Dir: content directory, used to build image URLs
 */ -}}
 {{- with .Content }}
-<div class="content drop" data-name="{{ fallback .Название .Name }}"{{ if hasPrefix $.CurrentPath "Люди" }} data-viewport="circle"{{ end }} data-dir="{{ $.Dir }}"{{ if .Source }} data-source="{{ .Source }}"{{ end }} tabindex="0">
+<div class="content drop" data-name="{{ .Header }}"{{ if hasPrefix $.CurrentPath "Люди" }} data-viewport="circle"{{ end }} data-dir="{{ $.Dir }}"{{ if .Source }} data-source="{{ .Source }}"{{ end }} tabindex="0">
     {{- with .HTML }}{{ . }}{{ end }}
     {{- with .Image }}
     <div class="thumb
@@ -16,7 +16,7 @@ Inputs (same as for "index" template):
         " style="background-image: url('{{ config "MediaHost" }}/{{ $.Dir }}/{{ .ThumbPath }}');
         {{- thumbStylePct . -}}"></div>
     {{- end }}
-    {{ if either .Name .Название }}<h1{{ if or .Подзаголовок .Ник }} class="with-subtitle"{{ end }}>{{ fallback .Название .Name }}</h1>{{ end }}
+    {{ if .Header }}<h1{{ if or .Подзаголовок .Ник }} class="with-subtitle"{{ end }}>{{ .Header }}</h1>{{ end }}
     {{- with .Ник }}
     <p class="nick">{{ . }}</p>
     {{- end }}

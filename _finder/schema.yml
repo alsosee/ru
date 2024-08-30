@@ -17,10 +17,11 @@ content:
     имя:
       description: Имя человека или название организации, подкаста, фильма, и т.д.
       type: string
-      meta: name
+      alias: name
     название:
       description: Название произведения
       type: string
+      alias: title
     подзаголовок:
       type: string
     ник:
