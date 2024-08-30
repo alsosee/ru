@@ -16,11 +16,11 @@ Inputs (same as for "index" template):
         " style="background-image: url('{{ config "MediaHost" }}/{{ $.Dir }}/{{ .ThumbPath }}');
         {{- thumbStylePct . -}}"></div>
     {{- end }}
-    {{ if either .Name .Title }}<h1{{ if or .Subtitle .Ник }} class="with-subtitle"{{ end }}>{{ fallback .Title .Name }}</h1>{{ end }}
+    {{ if either .Имя .Название }}<h1{{ if or .Подзаголовок .Ник }} class="with-subtitle"{{ end }}>{{ fallback .Название .Имя }}</h1>{{ end }}
     {{- with .Ник }}
     <p class="nick">{{ . }}</p>
     {{- end }}
-    {{- with .Subtitle }}
+    {{- with .Подзаголовок }}
     <p class="subtitle">{{ . }}</p>
     {{- end }}
     {{- if .Series }}<p class="series">Series: {{ template "reference" dict "Path" (series .) "HideType" true "Fallback" .Series }}</p>{{ end }}

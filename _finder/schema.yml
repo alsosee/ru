@@ -18,8 +18,10 @@ content:
       description: Имя человека или название организации, подкаста, фильма, и т.д.
       type: string
       meta: name
-    title:
-      description: Override for the name, used as page title, fallback to Name
+    название:
+      description: Название произведения
+      type: string
+    подзаголовок:
       type: string
     ник:
       type: string
@@ -32,7 +34,7 @@ content:
       type: string
     # year:
     #   type: int
-    description:
+    описание:
       type: string
     cover_artist:
       type: человек
