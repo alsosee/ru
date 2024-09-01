@@ -1,6 +1,7 @@
 root_types:
   - path: Люди
     type: человек
+    meta: People
   - path: Организации
     type: организация
   - path: Подкасты
