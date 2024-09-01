@@ -31,7 +31,7 @@ content:
       path: $ID
     subtitle:
       type: string
-    ранееИзвестенКак:
+    ранее_известен_как:
       type: string
     # year:
     #   type: int
