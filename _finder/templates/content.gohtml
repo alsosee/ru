@@ -198,7 +198,7 @@ Inputs (same as for "index" template):
 
     {{- if not .Source }}
     <div class="missing">
-        <p>This page is a stub. You can help by <a href="https://github.com/alsosee/info/new/main/{{ $.Dir }}/?filename={{ htmlEscape .Name }}.yml">contributing</a>.</p>
+        <p>Это страница-заглушка. <a href="{{ $.Config.Repo }}/new/main/{{ $.Dir }}/?filename={{ htmlEscape .Name }}.yml">Добавьте информацию</a> чтобы помочь проекту.</p>
     </div>
     {{- end }}
 
