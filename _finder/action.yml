@@ -32,6 +32,9 @@ inputs:
   search_state:
     description: File to store search state
     required: false
+  search_index:
+    description: Search index name
+    required: false
   num_workers:
     description: Number of workers to use
     required: false
