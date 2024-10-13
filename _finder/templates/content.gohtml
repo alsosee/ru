@@ -118,9 +118,9 @@ Inputs (same as for "index" template):
     {{- template "list"   dict "Type" "person"  "Label" "Composers"      "Field" .Composers }}
     {{- template "list"   dict "Type" "person"  "Label" "Ведущие"        "Field" .Ведущие }}
     {{- template "list"   dict "Type" "person"  "Label" "Гости"          "Field" .Гости }}
-    
+
     {{- with .От }}<p>{{ template "reference" dict "Path" . "Prefix" "Организации/" "HideType" true }}</p>{{ end }}
-    
+
     {{- with .ISBN }}<p>ISBN: {{ . }}</p>{{ end }}
     {{- with .ISBN10 }}<p>ISBN10: {{ . }}</p>{{ end }}
     {{- with .ISBN13 }}<p>ISBN13: {{ . }}</p>{{ end }}
@@ -199,7 +199,7 @@ Inputs (same as for "index" template):
 
     {{- if not .Source }}
     <div class="missing">
-        <p>Это страница-заглушка. <a href="{{ $.Config.Repo }}/new/main/{{ $.Dir }}/?filename={{ htmlEscape .Name }}.yml">Добавьте информацию</a> чтобы помочь проекту.</p>
+        <p>Это страница-заглушка. <a href="{{ $.Config.Repo }}/new/main/{{ $.Dir }}/?filename={{ htmlEscape .GetName }}.yml">Добавьте информацию</a> чтобы помочь проекту.</p>
     </div>
     {{- end }}
 
