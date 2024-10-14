@@ -14,7 +14,7 @@ Inputs (same as for "index" template):
     <div class="thumb
         {{- if isJPG .Path }} jpg{{ end }}
         {{- if hasPrefix $.CurrentPath "Люди" }} people{{ end -}}
-        " style="background-image: url('{{ config "MediaHost" }}/{{ $.Dir }}/{{ .ThumbPath }}');
+        " style="background-image: url('{{ (config).MediaHost }}/{{ $.Dir }}/{{ .ThumbPath }}');
         {{- thumbStylePct . -}}"></div>
     {{- end }}
     {{ if .Header }}<h1{{ if or .Подзаголовок .Ник }} class="with-subtitle"{{ end }}>{{ .Header }}</h1>{{ end }}
@@ -199,7 +199,7 @@ Inputs (same as for "index" template):
 
     {{- if not .Source }}
     <div class="missing">
-        <p>Это страница-заглушка. <a href="{{ $.Config.Repo }}/new/main/{{ $.Dir }}/?filename={{ htmlEscape .GetName }}.yml">Добавьте информацию</a> чтобы помочь проекту.</p>
+        <p>Это страница-заглушка. <a href="{{ (config).Repo }}/new/main/{{ $.Dir }}/?filename={{ htmlEscape .GetName }}.yml">Добавьте информацию</a> чтобы помочь проекту.</p>
     </div>
     {{- end }}
 
@@ -209,7 +209,7 @@ Inputs (same as for "index" template):
         {{- range . }}
         <li>
         {{- if .Image }}
-            <span class="image drop" data-viewport="circle" data-name="{{ htmlEscape .Name }}" style="background-image: url('{{ config "MediaHost" }}/{{ escape $.CurrentPath }}/Characters/{{ .Image.ThumbPath }}'); {{ thumbStylePct .Image }}"></span>
+            <span class="image drop" data-viewport="circle" data-name="{{ htmlEscape .Name }}" style="background-image: url('{{ (config).MediaHost }}/{{ escape $.CurrentPath }}/Characters/{{ .Image.ThumbPath }}'); {{ thumbStylePct .Image }}"></span>
         {{- else }}
             <span class="no-image drop" data-viewport="circle" data-name="{{ htmlEscape .Name }}"></span>
         {{- end }}
