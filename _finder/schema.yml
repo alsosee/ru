@@ -12,6 +12,8 @@ root_types:
     type: шоу
   - path: Концерты
     type: концерт
+# russian letters cannot be used in MeiliSearch document IDs
+hash_ids: true
 content:
   type: object
   properties:
