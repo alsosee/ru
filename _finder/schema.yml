@@ -31,7 +31,7 @@ content:
       type: string
     image:
       type: media
-      path: $ID
+      path: $$
     subtitle:
       type: string
     ранее_известен_как:
