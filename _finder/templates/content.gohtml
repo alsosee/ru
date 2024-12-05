@@ -216,7 +216,7 @@ Inputs (same as for "index" template):
             <span class="name">{{ .Name }}</span>
         {{- if .Actor }}
             {{- $actorID := join "Люди/" .Actor }}
-            {{- $person := content $actorID }}
+            {{- $person := content $actorID "content" }}
             {{- if $person }}
             <span><a class="actor" href="/Люди/{{ .Actor }}">{{ .Actor }}</a>{{ template "awards" .Awards }}</span>
             {{- else if gt (len (connections $actorID)) 1 }}
@@ -226,7 +226,7 @@ Inputs (same as for "index" template):
             {{- end }}
         {{- else if .Voice }}
             {{- $actorID := join "Люди/" .Voice }}
-            {{- $person := content $actorID }}
+            {{- $person := content $actorID "content" }}
             {{- if $person }}
             <span><a class="actor" href="/Люди/{{ .Voice }}">{{ .Voice }}</a>{{ template "awards" .Awards }}</span>
             {{- else if gt (len (connections $actorID)) 1 }}
@@ -246,7 +246,7 @@ Inputs (same as for "index" template):
     {{- range . }}
     <h3>{{ .Name }}</h3>
     {{- if .Winner.Actor }}
-        {{- $character := characterByActor (content .Winner.Reference) .Winner.Actor }}
+        {{- $character := characterByActor (content .Winner.Reference "content") .Winner.Actor }}
         {{ template "reference" dict "Path" .Winner.Actor "Prefix" "Люди" "HideType" true }}
 
         {{- if $character }}
