@@ -27,5 +27,6 @@ label_cancel: Отмена
 label_upload: Загрузить
 no_results_label: Ничего не найдено.
 of_label:
+and_label: и
 column_name: Имя
 column_kind: Вид
