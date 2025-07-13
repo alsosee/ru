@@ -197,7 +197,7 @@ Inputs (same as for "index" template):
         {{- template "link" dict "Label" "Кинопоиск" "URL" .Kinopoisk }}
     </p>
 
-    {{- if not .Source }}
+    {{- if hasPrefix .Source "missing/" }}
     <div class="missing">
         <p>Это страница-заглушка. <a href="{{ (config).Repo }}/new/main/{{ $.Dir }}/?filename={{ htmlEscape .GetName }}.yml">Добавьте информацию</a> чтобы помочь проекту.</p>
     </div>
