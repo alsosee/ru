@@ -12,6 +12,9 @@ opengraph:
 logo_shift_y: -44px
 home_label: Главная
 search_label: Поиск
+not_found_header: Не найдено
+not_found_description: Запрашиваемый объект не найден.
+not_found_but_description: Запрашиваемый объект не найден. Ниже показаны наиболее близкие совпадения.
 views_label: Вид
 views_tooltip: Показать как иконки, список или колонки
 view_icons: Иконки
